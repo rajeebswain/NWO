@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table of 100 People</title>
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    <h1>Table of 100 People</h1>
+    <table id="peopleTable">
+        <tr>
+            <th>Serial Number</th>
+            <th>Owner Castle Name</th>
+            <th>Player Castle Name</th>
+            <th>Action</th>
+        </tr>
+    </table>
+    
+    <div class="content">
+        <h2>Add New Person</h2>
+        <label for="ownerName">Owner Castle Name:</label>
+        <input type="text" id="ownerName">
+        <label for="playerName">Player Castle Name:</label>
+        <input type="text" id="playerName">
+        <button id="addPerson">Add Person</button>
+    </div>
+
+    <script>
+        const peopleTable = document.getElementById('peopleTable');
+        const addPersonButton = document.getElementById('addPerson');
+        const ownerNameInput = document.getElementById('ownerName');
+        const playerNameInput = document.getElementById('playerName');
+        let serialNumber = 1;
+
+        const predefinedPassword = 'nwo@123'; // Set your predefined password here
+
+        addPersonButton.addEventListener('click', function() {
+            const ownerName = ownerNameInput.value;
+            const playerName = playerNameInput.value;
+
+            if (ownerName && playerName) {
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${serialNumber}</td>
+                    <td>${ownerName}</td>
+                    <td>${playerName}</td>
+                    <td>
+                        <input type="password" placeholder="Password" id="password${serialNumber}">
+                        <button onclick="removePerson(${serialNumber})">Remove</button>
+                    </td>
+                `;
+                peopleTable.appendChild(newRow);
+
+                ownerNameInput.value = '';
+                playerNameInput.value = '';
+
+                serialNumber++;
+            }
+        });
+
+        function removePerson(serial) {
+            const passwordInput = document.getElementById(`password${serial}`);
+            const password = passwordInput.value;
+
+            // Compare the entered password with the predefined password
+            if (password === predefinedPassword) {
+                peopleTable.deleteRow(serial);
+            } else {
+                alert('Incorrect password. Access denied.');
+            }
+        }
+    </script>
+    </table>
+</body>
+</html>
+
