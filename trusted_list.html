@@ -3,20 +3,7 @@
 <head>
     <title>Table of 100 People</title>
     <style>
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: auto;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: center;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+        /* Your existing styles */
     </style>
 </head>
 <body>
@@ -26,6 +13,7 @@
             <th>Serial Number</th>
             <th>Owner Castle Name</th>
             <th>Player Castle Name</th>
+            <th>Action</th>
         </tr>
     </table>
     
@@ -45,6 +33,8 @@
         const playerNameInput = document.getElementById('playerName');
         let serialNumber = 1;
 
+        const predefinedPassword = 'nwo@123'; // Set your predefined password here
+
         addPersonButton.addEventListener('click', function() {
             const ownerName = ownerNameInput.value;
             const playerName = playerNameInput.value;
@@ -55,6 +45,10 @@
                     <td>${serialNumber}</td>
                     <td>${ownerName}</td>
                     <td>${playerName}</td>
+                    <td>
+                        <input type="password" placeholder="Password" id="password${serialNumber}">
+                        <button onclick="removePerson(${serialNumber})">Remove</button>
+                    </td>
                 `;
                 peopleTable.appendChild(newRow);
 
@@ -64,6 +58,18 @@
                 serialNumber++;
             }
         });
+
+        function removePerson(serial) {
+            const passwordInput = document.getElementById(`password${serial}`);
+            const password = passwordInput.value;
+
+            // Compare the entered password with the predefined password
+            if (password === predefinedPassword) {
+                peopleTable.deleteRow(serial);
+            } else {
+                alert('Incorrect password. Access denied.');
+            }
+        }
     </script>
     </table>
 </body>
