@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table of 100 People</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Serial Number</th>
+            <th>Owner Castle Name</th>
+            <th>Player Castle Name</th>
+        </tr>
+        <script>
+            const memberDetails = [
+                { sl: 1, owner: "LOGAN", player: "KING MAC" },
+                { sl: 2, owner: "KRISTY", player: "DARK RAVEN" },
+                { sl: 3, owner: "RAJIV", player: "ASURA" },
+                { sl: 4, owner: "TIGER", player: "DOA NHI" },
+                { sl: 5, owner: "DEEP", player: "JAYS HAVEN" },
+                { sl: 6, owner: "ABHIJEET", player: "NANA" },
+                { sl: 7, owner: "STARK", player: "HANA" },
+                { sl: 8, owner: "THUNDER", player: "KILLER" },
+                { sl: 9, owner: "ETHERNAL", player: "ERIC" },
+                { sl: 10, owner: "MAYANK", player: "DK" },
+                { sl: 11, owner: "RATS HAVEN", player: "HUNTING" },
+                { sl: 12, owner: "POLGOS", player: "SEITO" },
+                { sl: 13, owner: "ACHOX", player: "KAAL" },
+                { sl: 14, owner: "KRUNAL", player: "JACKSTEEL" },
+                { sl: 15, owner: "PISTOL", player: "PERSES" },
+                { sl: 16, owner: "MAYUR", player: "ELITE" },
+                { sl: 17, owner: "KING STAR", player: "GARUDA" },
+                { sl: 18, owner: "WAK", player: "FOSTFIRE" },
+                { sl: 19, owner: "IJRA", player: "THESTRAL" },
+                { sl: 20, owner: "MANATA", player: "FALCONE" },
+                { sl: 21, owner: "AKHTAR", player: "MANATA" },
+                { sl: 22, owner: "DRAGONZ", player: "TARTARUS" },
+                { sl: 23, owner: "LEO GTR", player: "SIAM" },
+                { sl: 24, owner: "KITARO", player: "ARKA" },
+                { sl: 25, owner: "MOVADO", player: "VALENTINO" },
+                { sl: 26, owner: "MAHADEV", player: "GALLON" },
+                { sl: 27, owner: "RHODES", player: "KOETARADJA" },
+                { sl: 28, owner: "RED DEVID", player: "MORELLE" },
+                { sl: 29, owner: "DRAGON", player: "DK CAMP" },
+                { sl: 30, owner: "KING STARK", player: "ARKA" },
+                { sl: 31, owner: "TNT", player: "VENOM" },
+                { sl: 32, owner: "KOMANDO", player: "JALANGKUNG" },
+                { sl: 33, owner: "Nyipook-", player: "jawara t6" },
+                { sl: 34, owner: "Clay", player: "Indah88" },
+                { sl: 35, owner: "PRU", player: "BLACK" },
+                { sl: 36, owner: "D4V1", player: "------" },
+                { sl: 37, owner: "SINGH ROSA", player: "IBNU" },
+                { sl: 38, owner: "VANROSA", player: "PUZZLE(R30)" },
+                { sl: 39, owner: "D4V1", player: "------" },
+            ];
+            
+            for (const member of memberDetails) {
+                document.write(`
+                    <tr>
+                        <td>${member.sl}</td>
+                        <td>${member.owner}</td>
+                        <td>${member.player}</td>
+                    </tr>
+                `);
+            }
+        </script>
+    </table>
+</body>
+</html>
